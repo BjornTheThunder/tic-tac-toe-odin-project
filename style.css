@@ -1,0 +1,142 @@
+:root {
+    --bg-color: #0f172a;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --text-color: #f8fafc;
+    --accent-x: #38bdf8;
+    --accent-o: #fb7185;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Segoe UI", system-ui, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.game-container {
+    text-align: center;
+    background: var(--glass-bg);
+    padding: 2rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+}
+
+.status-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+#status {
+    font-size: 1.1rem;
+}
+
+#reset-btn {
+    background: transparent;
+    border: 1px solid var(--accent-x);
+    color: var(--accent-x);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#reset-btn:hover {
+    background: var(--accent-x);
+    color: var(--bg-color);
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+}
+
+.cell {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cell:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: scale(1.02);
+}
+
+.cell.x {
+    color: var(--accent-x);
+}
+.cell.o {
+    color: var(--accent-o);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: var(--glass-bg);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
+}
+
+.modal-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+#play-again-btn {
+    background: var(--accent-x);
+    color: var(--bg-color);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#play-again-btn:hover {
+    transform: scale(1.05);
+}
+
+.modal.show {
+    display: flex;
+}
